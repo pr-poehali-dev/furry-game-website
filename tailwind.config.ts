@@ -17,8 +17,19 @@ export default {
 				'2xl': '1400px'
 			}
 		},
+		fontFamily: {
+			'comic': ['Comic Sans MS', 'cursive'],
+			'sans': ['Open Sans', 'sans-serif']
+		},
 		extend: {
 			colors: {
+				'game-orange': '#FF6B35',
+				'game-blue': '#4ECDD1',
+				'game-yellow': '#FFEAA7',
+				'game-mint': '#96CEB4',
+				'game-coral': '#FF7675',
+				'game-lavender': '#DDA0DD',
+				'game-pink': '#FF89B3',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
