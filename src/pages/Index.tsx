@@ -9,44 +9,47 @@ const Index = () => {
 
   const characters = [
     {
-      name: "Фокси",
-      type: "Лиса",
-      description: "Быстрый и хитрый персонаж с огненными способностями",
+      name: "Вайпер",
+      type: "Элитная Лиса",
+      description: "Соблазнительная и опасная охотница. Мастер стелса и ближнего боя",
       image: "/img/2bc005b7-7d52-4447-a803-76a91993a75a.jpg",
-      skills: ["Скорость", "Огонь", "Хитрость"]
+      skills: ["Стелс", "Обольщение", "Критический урон"],
+      rating: "18+"
     },
     {
-      name: "Вульф",
-      type: "Волк", 
-      description: "Сильный воин с ледяными атаками",
+      name: "Рейвен", 
+      type: "Альфа Волк",
+      description: "Доминирующий лидер стаи. Безжалостный в бою, страстный в жизни",
       image: "/img/3814edf6-2e4d-4108-9407-af864c5cb55e.jpg",
-      skills: ["Сила", "Лёд", "Защита"]
+      skills: ["Лидерство", "Ярость", "Доминирование"],
+      rating: "18+"
     },
     {
-      name: "Китти",
-      type: "Кошка",
-      description: "Магический персонаж с исцеляющими способностями", 
-      image: "/img/26110a50-a2c1-4795-a445-56c2eaf4c290.jpg",
-      skills: ["Магия", "Исцеление", "Ловкость"]
+      name: "Мистик",
+      type: "Темная Жрица",
+      description: "Загадочная чародейка с запретными знаниями и темными желаниями",
+      image: "/img/26110a50-a2c1-4795-a445-56c2eaf4c290.jpg", 
+      skills: ["Темная магия", "Соблазн", "Контроль разума"],
+      rating: "18+"
     }
   ];
 
-  const rules = [
+  const features = [
     {
-      title: "Основы игры",
-      content: "Выберите персонажа и присоединитесь к онлайн-комнате с другими игроками"
+      title: "Взрослый контент",
+      content: "Интимные сцены, романтические линии и эротические элементы для зрелой аудитории"
     },
     {
-      title: "Управление",
-      content: "Используйте WASD для движения, мышь для атак, пробел для прыжка"
+      title: "Психология персонажей",
+      content: "Глубокие характеры с темными мотивами, страстями и сложными отношениями"
     },
     {
-      title: "Цель",
-      content: "Соберите максимум очков, выполняя задания и побеждая противников"
+      title: "Реалистичные отношения",
+      content: "Система романтики с множественными партнерами и различными формами близости"
     },
     {
-      title: "Команды",
-      content: "Играйте в команде до 4 игроков или сражайтесь каждый сам за себя"
+      title: "Приватные комнаты",
+      content: "Эксклюзивные пространства для интимного общения между игроками 18+"
     }
   ];
 
@@ -57,17 +60,22 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
+      {/* Age Warning */}
+      <div className="fixed top-0 left-0 right-0 z-60 bg-red-600/90 backdrop-blur-md border-b border-red-400 text-center py-2">
+        <p className="text-sm font-bold text-white">⚠️ КОНТЕНТ 18+ • ТОЛЬКО ДЛЯ ВЗРОСЛЫХ • ADULT CONTENT ⚠️</p>
+      </div>
+
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
+      <nav className="fixed top-8 left-0 right-0 z-50 glass-effect">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full flex items-center justify-center">
-                🎮
+              <div className="w-8 h-8 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center neon-glow">
+                🔥
               </div>
-              <h1 className="font-bold text-xl bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
-                Фурри Игра
+              <h1 className="font-bold text-xl bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+                Furrverse 18+
               </h1>
             </div>
             
@@ -75,16 +83,16 @@ const Index = () => {
               {[
                 { id: "home", label: "Главная", icon: "Home" },
                 { id: "characters", label: "Персонажи", icon: "Users" },
-                { id: "game", label: "Игра", icon: "Gamepad2" },
-                { id: "rules", label: "Правила", icon: "BookOpen" }
+                { id: "experience", label: "Опыт", icon: "Heart" },
+                { id: "features", label: "Возможности", icon: "Lock" }
               ].map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-200 ${
+                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 ${
                     activeSection === item.id 
-                      ? "bg-orange-100 text-orange-600" 
-                      : "text-gray-600 hover:text-orange-500 hover:bg-orange-50"
+                      ? "bg-pink-500/20 text-pink-400 neon-glow" 
+                      : "text-gray-300 hover:text-pink-400 hover:bg-pink-500/10"
                   }`}
                 >
                   <Icon name={item.icon} size={18} />
@@ -94,70 +102,78 @@ const Index = () => {
             </div>
 
             <Button 
-              className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-bold"
-              onClick={() => scrollToSection("game")}
+              className="bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white font-bold neon-glow"
+              onClick={() => scrollToSection("experience")}
             >
-              Играть онлайн
+              <Icon name="Lock" className="mr-2" size={16} />
+              Войти 18+
             </Button>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="pt-16 min-h-screen flex items-center justify-center">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section id="home" className="pt-24 min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-pink-900/20 to-purple-900/20"></div>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 bg-clip-text text-transparent">
-              Добро пожаловать в мир Фурри!
+            <div className="mb-6">
+              <Badge className="bg-red-600/20 text-red-400 border border-red-400 text-lg px-4 py-2 mb-4">
+                ТОЛЬКО ДЛЯ ВЗРОСЛЫХ 18+
+              </Badge>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
+              Добро пожаловать в Furrverse
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Присоединяйся к увлекательным онлайн-приключениям с красочными персонажами. 
-              Играй с друзьями, развивай навыки и исследуй волшебный мир!
+            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              Погрузитесь в мир интимных приключений и страстных отношений. 
+              Эксклюзивная вселенная для взрослых с глубокими персонажами и реалистичными эмоциями.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <Button 
                 size="lg"
-                className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-bold px-8 py-4 text-lg animate-pulse"
-                onClick={() => scrollToSection("game")}
+                className="bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white font-bold px-8 py-4 text-lg neon-glow"
+                onClick={() => scrollToSection("experience")}
               >
-                <Icon name="Play" className="mr-2" size={20} />
-                Начать игру
+                <Icon name="Heart" className="mr-2" size={20} />
+                Начать опыт
               </Button>
               <Button 
                 size="lg"
                 variant="outline"
-                className="border-2 border-purple-300 text-purple-600 hover:bg-purple-50 font-bold px-8 py-4 text-lg"
+                className="border-2 border-purple-400 text-purple-400 hover:bg-purple-500/10 font-bold px-8 py-4 text-lg"
                 onClick={() => scrollToSection("characters")}
               >
                 <Icon name="Users" className="mr-2" size={20} />
-                Выбрать персонажа
+                Выбрать партнера
               </Button>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-              <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/50 shadow-lg">
-                <div className="w-12 h-12 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="glass-effect rounded-2xl p-6 border border-pink-500/20 shadow-lg hover:shadow-pink-500/20 transition-all duration-300">
+                <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4 neon-glow">
                   <Icon name="Users" className="text-white" size={24} />
                 </div>
-                <h3 className="font-bold text-lg mb-2">Мультиплеер</h3>
-                <p className="text-gray-600">Играй с друзьями онлайн в режиме реального времени</p>
+                <h3 className="font-bold text-lg mb-2 text-pink-400">Интимное общение</h3>
+                <p className="text-gray-400">Приватные комнаты для взрослых бесед и романтических встреч</p>
               </div>
               
-              <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/50 shadow-lg">
-                <div className="w-12 h-12 bg-gradient-to-r from-pink-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Sparkles" className="text-white" size={24} />
+              <div className="glass-effect rounded-2xl p-6 border border-purple-500/20 shadow-lg hover:shadow-purple-500/20 transition-all duration-300">
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 neon-glow">
+                  <Icon name="Heart" className="text-white" size={24} />
                 </div>
-                <h3 className="font-bold text-lg mb-2">Уникальные персонажи</h3>
-                <p className="text-gray-600">Выбирай из разнообразных Фурри с особыми способностями</p>
+                <h3 className="font-bold text-lg mb-2 text-purple-400">Страстные сюжеты</h3>
+                <p className="text-gray-400">Глубокие романтические линии с элементами для взрослых</p>
               </div>
               
-              <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/50 shadow-lg">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Trophy" className="text-white" size={24} />
+              <div className="glass-effect rounded-2xl p-6 border border-indigo-500/20 shadow-lg hover:shadow-indigo-500/20 transition-all duration-300">
+                <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4 neon-glow">
+                  <Icon name="Lock" className="text-white" size={24} />
                 </div>
-                <h3 className="font-bold text-lg mb-2">Соревнования</h3>
-                <p className="text-gray-600">Участвуй в турнирах и поднимайся в рейтинге</p>
+                <h3 className="font-bold text-lg mb-2 text-indigo-400">Эксклюзивный контент</h3>
+                <p className="text-gray-400">Премиум материалы и функции только для совершеннолетних</p>
               </div>
             </div>
           </div>
@@ -165,47 +181,53 @@ const Index = () => {
       </section>
 
       {/* Characters Section */}
-      <section id="characters" className="py-20 bg-white/50 backdrop-blur-sm">
+      <section id="characters" className="py-20 glass-effect">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-              Выбери своего персонажа
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+              Выберите своего партнера
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Каждый персонаж обладает уникальными способностями и стилем игры
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+              Каждый персонаж обладает уникальной личностью и предпочтениями для взрослых отношений
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {characters.map((character, index) => (
-              <Card key={index} className="group hover:scale-105 transition-all duration-300 bg-white/80 backdrop-blur-sm border-2 border-transparent hover:border-orange-200 shadow-lg hover:shadow-xl">
+              <Card key={index} className="group hover:scale-105 transition-all duration-300 glass-effect border-2 border-transparent hover:border-pink-500/50 shadow-lg hover:shadow-pink-500/20">
                 <CardHeader className="text-center">
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-gradient-to-r from-orange-400 to-pink-400 group-hover:scale-110 transition-transform duration-300">
-                    <img 
-                      src={character.image} 
-                      alt={character.name}
-                      className="w-full h-full object-cover"
-                    />
+                  <div className="relative">
+                    <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-pink-500/50 group-hover:border-pink-400 group-hover:shadow-pink-500/50 group-hover:shadow-lg transition-all duration-300 neon-glow">
+                      <img 
+                        src={character.image} 
+                        alt={character.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <Badge className="absolute -top-2 -right-2 bg-red-600 text-white">
+                      {character.rating}
+                    </Badge>
                   </div>
-                  <CardTitle className="text-2xl font-bold text-gray-800">{character.name}</CardTitle>
-                  <CardDescription className="text-lg text-gray-600">{character.type}</CardDescription>
+                  <CardTitle className="text-2xl font-bold text-pink-400">{character.name}</CardTitle>
+                  <CardDescription className="text-lg text-purple-400">{character.type}</CardDescription>
                 </CardHeader>
                 <CardContent className="text-center">
-                  <p className="text-gray-700 mb-4">{character.description}</p>
-                  <div className="flex flex-wrap gap-2 justify-center">
+                  <p className="text-gray-300 mb-4">{character.description}</p>
+                  <div className="flex flex-wrap gap-2 justify-center mb-4">
                     {character.skills.map((skill, skillIndex) => (
                       <Badge 
                         key={skillIndex} 
-                        className="bg-gradient-to-r from-orange-100 to-pink-100 text-orange-700 border border-orange-200"
+                        className="bg-gradient-to-r from-pink-600/20 to-purple-600/20 text-pink-400 border border-pink-500/30"
                       >
                         {skill}
                       </Badge>
                     ))}
                   </div>
                   <Button 
-                    className="mt-6 w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold"
+                    className="w-full bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white font-bold neon-glow"
                   >
-                    Выбрать {character.name}
+                    <Icon name="Heart" className="mr-2" size={16} />
+                    Познакомиться с {character.name}
                   </Button>
                 </CardContent>
               </Card>
@@ -214,99 +236,100 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Game Section */}
-      <section id="game" className="py-20 bg-gradient-to-r from-orange-50 to-pink-50">
+      {/* Experience Section */}
+      <section id="experience" className="py-20 bg-gradient-to-r from-pink-900/20 to-purple-900/20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
-            Готов к приключениям?
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+            Готовы к незабываемому опыту?
           </h2>
-          <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
-            Присоединяйся к тысячам игроков онлайн и покажи свои навыки в захватывающих битвах!
+          <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+            Окунитесь в мир страсти и близости с тысячами взрослых игроков онлайн
           </p>
 
-          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 mb-8 shadow-xl border border-white/50">
+          <div className="glass-effect rounded-3xl p-8 mb-8 shadow-xl border border-pink-500/20">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div className="text-left">
-                <h3 className="text-2xl font-bold mb-4 text-gray-800">Онлайн игра</h3>
-                <ul className="space-y-3 text-gray-600">
+                <h3 className="text-2xl font-bold mb-4 text-pink-400">Взрослые встречи</h3>
+                <ul className="space-y-3 text-gray-300">
                   <li className="flex items-center">
-                    <Icon name="Users" className="text-green-500 mr-3" size={20} />
-                    До 8 игроков в комнате
+                    <Icon name="Heart" className="text-red-500 mr-3" size={20} />
+                    Приватные комнаты для двоих
                   </li>
                   <li className="flex items-center">
-                    <Icon name="Zap" className="text-yellow-500 mr-3" size={20} />
-                    Быстрые матчи 5-15 минут
+                    <Icon name="Users" className="text-pink-500 mr-3" size={20} />
+                    Групповые интимные сессии
                   </li>
                   <li className="flex items-center">
-                    <Icon name="Trophy" className="text-purple-500 mr-3" size={20} />
-                    Система рейтинга и наград
+                    <Icon name="MessageCircle" className="text-purple-500 mr-3" size={20} />
+                    Эротический чат и ролевые игры
                   </li>
                   <li className="flex items-center">
-                    <Icon name="MessageCircle" className="text-blue-500 mr-3" size={20} />
-                    Чат с друзьями
+                    <Icon name="Camera" className="text-indigo-500 mr-3" size={20} />
+                    Видео-звонки с персонажами
                   </li>
                 </ul>
               </div>
               
               <div className="text-center">
-                <div className="bg-gradient-to-r from-orange-400 to-pink-400 rounded-2xl p-6 text-white mb-6">
-                  <Icon name="Gamepad2" className="mx-auto mb-4" size={48} />
-                  <p className="text-lg font-bold">1,247 игроков онлайн</p>
+                <div className="bg-gradient-to-r from-pink-600 to-purple-600 rounded-2xl p-6 text-white mb-6 neon-glow">
+                  <Icon name="Users" className="mx-auto mb-4" size={48} />
+                  <p className="text-lg font-bold">2,847 взрослых онлайн</p>
+                  <p className="text-sm opacity-80">Ищут интимного общения</p>
                 </div>
                 
                 <Button 
                   size="lg"
-                  className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold px-12 py-6 text-xl animate-bounce"
+                  className="bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white font-bold px-12 py-6 text-xl neon-glow"
                 >
-                  <Icon name="Play" className="mr-2" size={24} />
-                  Быстрая игра
+                  <Icon name="Heart" className="mr-2" size={24} />
+                  Войти в 18+ зону
                 </Button>
               </div>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Button variant="outline" className="border-2 border-blue-300 text-blue-600 hover:bg-blue-50 font-bold py-4">
-              <Icon name="Users" className="mr-2" size={20} />
-              Создать комнату
+            <Button variant="outline" className="border-2 border-pink-500/50 text-pink-400 hover:bg-pink-500/10 font-bold py-4">
+              <Icon name="Lock" className="mr-2" size={20} />
+              Приватная комната
             </Button>
-            <Button variant="outline" className="border-2 border-purple-300 text-purple-600 hover:bg-purple-50 font-bold py-4">
+            <Button variant="outline" className="border-2 border-purple-500/50 text-purple-400 hover:bg-purple-500/10 font-bold py-4">
               <Icon name="Search" className="mr-2" size={20} />
-              Найти игру
+              Найти партнера
             </Button>
-            <Button variant="outline" className="border-2 border-pink-300 text-pink-600 hover:bg-pink-50 font-bold py-4">
+            <Button variant="outline" className="border-2 border-red-500/50 text-red-400 hover:bg-red-500/10 font-bold py-4">
               <Icon name="Crown" className="mr-2" size={20} />
-              Турниры
+              VIP-доступ
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Rules Section */}
-      <section id="rules" className="py-20 bg-white/50 backdrop-blur-sm">
+      {/* Features Section */}
+      <section id="features" className="py-20 glass-effect">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-              Правила игры
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              Эксклюзивные возможности
             </h2>
-            <p className="text-xl text-gray-600">
-              Изучи основы и стань мастером Фурри-битв!
+            <p className="text-xl text-gray-300">
+              Откройте новые грани интимности и страсти в нашей взрослой вселенной
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {rules.map((rule, index) => (
-              <Card key={index} className="bg-white/80 backdrop-blur-sm border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300">
+            {features.map((feature, index) => (
+              <Card key={index} className="glass-effect border border-pink-500/20 shadow-lg hover:shadow-pink-500/20 transition-all duration-300">
                 <CardHeader>
-                  <CardTitle className="flex items-center text-xl font-bold text-gray-800">
-                    <div className="w-8 h-8 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex items-center justify-center text-white font-bold mr-3">
+                  <CardTitle className="flex items-center text-xl font-bold text-pink-400">
+                    <div className="w-8 h-8 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-3 neon-glow">
                       {index + 1}
                     </div>
-                    {rule.title}
+                    {feature.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600">{rule.content}</p>
+                  <p className="text-gray-300">{feature.content}</p>
                 </CardContent>
               </Card>
             ))}
@@ -315,39 +338,47 @@ const Index = () => {
           <div className="text-center mt-12">
             <Button 
               size="lg"
-              className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-bold px-8 py-4"
+              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold px-8 py-4 neon-glow"
             >
-              <Icon name="BookOpen" className="mr-2" size={20} />
-              Подробные правила
+              <Icon name="Crown" className="mr-2" size={20} />
+              Получить VIP-доступ
             </Button>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-black/50 text-white py-12 border-t border-pink-500/20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex items-center justify-center space-x-2 mb-6">
-            <div className="w-8 h-8 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full flex items-center justify-center">
-              🎮
+            <div className="w-8 h-8 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center neon-glow">
+              🔥
             </div>
-            <h3 className="font-bold text-xl">Фурри Игра</h3>
+            <h3 className="font-bold text-xl text-pink-400">Furrverse 18+</h3>
           </div>
+          
+          <div className="mb-6">
+            <Badge className="bg-red-600/20 text-red-400 border border-red-400 px-4 py-2">
+              КОНТЕНТ ТОЛЬКО ДЛЯ ВЗРОСЛЫХ 18+
+            </Badge>
+          </div>
+          
           <p className="text-gray-400 mb-6">
-            Присоединяйся к нашему сообществу и делись впечатлениями от игры!
+            Эксклюзивное сообщество для зрелых отношений и интимного общения
           </p>
+          
           <div className="flex justify-center space-x-6">
-            <Button variant="ghost" className="text-gray-400 hover:text-white">
-              <Icon name="MessageCircle" className="mr-2" size={20} />
-              Сообщество
+            <Button variant="ghost" className="text-gray-400 hover:text-pink-400">
+              <Icon name="Shield" className="mr-2" size={20} />
+              Конфиденциальность
             </Button>
-            <Button variant="ghost" className="text-gray-400 hover:text-white">
+            <Button variant="ghost" className="text-gray-400 hover:text-pink-400">
               <Icon name="Heart" className="mr-2" size={20} />
               Поддержка
             </Button>
-            <Button variant="ghost" className="text-gray-400 hover:text-white">
-              <Icon name="Info" className="mr-2" size={20} />
-              О игре
+            <Button variant="ghost" className="text-gray-400 hover:text-pink-400">
+              <Icon name="AlertTriangle" className="mr-2" size={20} />
+              Правила 18+
             </Button>
           </div>
         </div>
