@@ -9,28 +9,31 @@ const Index = () => {
 
   const characters = [
     {
-      name: "Вайпер",
+      name: "Скарлетт",
       type: "Элитная Лиса",
-      description: "Соблазнительная и опасная охотница. Мастер стелса и ближнего боя",
-      image: "/img/2bc005b7-7d52-4447-a803-76a91993a75a.jpg",
-      skills: ["Стелс", "Обольщение", "Критический урон"],
-      rating: "18+"
+      description: "Роковая красотка в черном белье. Мастер соблазнения и тайных игр",
+      image: "/img/4b60bccc-7127-45fa-b931-00d226beab89.jpg",
+      skills: ["Соблазнение", "Доминирование", "Фетиш-игры"],
+      rating: "18+",
+      personality: "Властная и чувственная"
     },
     {
-      name: "Рейвен", 
+      name: "Дейн", 
       type: "Альфа Волк",
-      description: "Доминирующий лидер стаи. Безжалостный в бою, страстный в жизни",
-      image: "/img/3814edf6-2e4d-4108-9407-af864c5cb55e.jpg",
-      skills: ["Лидерство", "Ярость", "Доминирование"],
-      rating: "18+"
+      description: "Брутальный лидер в кожаной экипировке. Жесткий доминант с страстным нравом",
+      image: "/img/34147390-dbc3-42a7-ab5f-104e29ca47c1.jpg",
+      skills: ["БДСМ", "Доминирование", "Грубые игры"],
+      rating: "18+",
+      personality: "Жесткий и неумолимый"
     },
     {
-      name: "Мистик",
-      type: "Темная Жрица",
-      description: "Загадочная чародейка с запретными знаниями и темными желаниями",
-      image: "/img/26110a50-a2c1-4795-a445-56c2eaf4c290.jpg", 
-      skills: ["Темная магия", "Соблазн", "Контроль разума"],
-      rating: "18+"
+      name: "Люна",
+      type: "Темная Колдунья",
+      description: "Мистическая красавица в откровенном наряде. Покорит магией и страстью",
+      image: "/img/2e546767-1dc4-4c30-a308-5f105772a415.jpg", 
+      skills: ["Магия любви", "Ролевые игры", "Фантазии"],
+      rating: "18+",
+      personality: "Загадочная и страстная"
     }
   ];
 
@@ -212,12 +215,13 @@ const Index = () => {
                   <CardDescription className="text-lg text-purple-400">{character.type}</CardDescription>
                 </CardHeader>
                 <CardContent className="text-center">
-                  <p className="text-gray-300 mb-4">{character.description}</p>
+                  <p className="text-gray-300 mb-3">{character.description}</p>
+                  <p className="text-pink-300 text-sm mb-4 italic">{character.personality}</p>
                   <div className="flex flex-wrap gap-2 justify-center mb-4">
                     {character.skills.map((skill, skillIndex) => (
                       <Badge 
                         key={skillIndex} 
-                        className="bg-gradient-to-r from-pink-600/20 to-purple-600/20 text-pink-400 border border-pink-500/30"
+                        className="bg-gradient-to-r from-red-600/30 to-pink-600/30 text-red-300 border border-red-500/50 hover:bg-red-500/20"
                       >
                         {skill}
                       </Badge>
