@@ -1,0 +1,30 @@
+{
+  "tests": [
+    {
+      "name": "Test character chat endpoint",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "character_id": "scarlett",
+        "message": "Привет"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "character_name": "string",
+        "response": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Test missing parameters",
+      "method": "POST", 
+      "path": "/",
+      "body": {},
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
